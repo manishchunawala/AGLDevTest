@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "List of all the cats in alphabetical order under a heading of the gender of their owner.";
+}
+<div ng-controller="catsController">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <h1>List of all the cats in alphabetical order under a heading of the gender of their owner.</h1>
+    <div>
+        <hr/>
+        <div ng-if="IsSuccess">
+            <ul ng-repeat="(key, values) in AllCats">
+                <span style="font-size:larger;font-weight:bold;">{{key}}</span>
+                <li ng-repeat="value in values">{{ value.catName }}
+            </ul>
+        </div>
+        <div ng-if="!IsSuccess">
+            <span>{{StatusCode}}</span>
+            <span ng-bind-html="Error"></span>
+        </div>
+    </div>
+</div>
